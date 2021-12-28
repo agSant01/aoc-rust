@@ -79,6 +79,8 @@ fn part1_b(data: &Vec<Data>) -> u32 {
     gamma >>= 1;
     epsilon >>= 1;
 
+    assert_eq!(epsilon, !gamma & (1 << data[0].len()) - 1);
+
     gamma * epsilon
 }
 
@@ -101,10 +103,7 @@ fn bit_arr_to_dec(bit_arr: &Vec<bool>) -> u32 {
 }
 
 fn find_rating(words: &Vec<Data>, criteria: bool) -> &Data {
-    let mut tmp_words: Vec<&Data> = Vec::with_capacity(words.len());
-    for w in words {
-        tmp_words.push(w);
-    }
+    let mut tmp_words: Vec<&Data> = words.iter().collect();
 
     let mut pos = 0;
     let mut ones: usize;
