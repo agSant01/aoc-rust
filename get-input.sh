@@ -29,5 +29,9 @@ if [[ ! -d ./$1/day$2/ ]]; then
     exit 1;
 fi
 
-curl --header @./.env.headers https://adventofcode.com/2021/day/2/input > ./$1/day$2/input/input.txt
+if [[ ! -d ./$1/day$2/input ]]; then
+    mkdir ./$1/day$2/input
+fi 
+
+curl --header @./.env.headers https://adventofcode.com/2021/day/$(($2 + 0))/input > ./$1/day$2/input/input.txt
 touch ./$1/day$2/input/input_test.txt
