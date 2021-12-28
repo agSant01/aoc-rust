@@ -7,7 +7,6 @@ const TEST: bool = false;
 struct Data {}
 
 fn get_input() -> io::Result<io::Lines<io::BufReader<fs::File>>> {
-    // let vec = vec![];
     let file_path;
 
     if TEST {
